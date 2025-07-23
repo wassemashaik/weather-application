@@ -1,38 +1,207 @@
-.App {
-  text-align: center;
+/* General styles */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.5s, color 0.5s;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  transition: background 0.5s ease;
+}
+.header {
+  text-align: center;
+}
+/* Input styling */
+input[type="text"] {
+  padding: 10px 15px;
+  font-size: 1rem;
+  margin: 20px 0;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  max-width: 80%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+/* Weather container */
+.weather-container {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: inherit;
+  max-width: 400px;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+/* Forecast styling */
+.forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.forecast-grid {
+  display: flex;
+  flex-direction: row;
+}
+.forecast-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 5px;
+}
+.weather-info{
+  background-color: rgba(255, 255, 255, 0.1);
+   padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+/* Weather themes */
+.sunny {
+  background-image: url("https://www.mathabah.org/wp-content/uploads/2018/01/long-summer-day.jpeg");
+  background-size: cover;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cloudy {
+  background-image: url("https://cdn.pixabay.com/photo/2015/12/25/13/03/sky-1107579_1280.jpg");
+  background-size: cover;
+}
+
+.rainy {
+  background-image: url("https://assets.weforum.org/article/image/j4YIXT1qQkQB6DYhK9ma2ZSRlceIQDPcEVZzkZQkrTE.jpg");
+  background-size: cover;
+}
+
+.snow {
+  background-image: url("https://images.wallpaperscraft.com/image/single/city_house_winter_109917_3840x2400.jpg");
+  background-size: cover;
+}
+
+.stormy {
+  background-image: url("https://mediabrest.by/editor_files/images/images/people_news/mify.jpg");
+  background-size: cover;
+}
+
+.app.default {
+  background-color: #222;
+}
+/* Dark Mode */
+.light {
+  background-color: #e0e0e0;
+}
+.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark input[type="text"] {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.toggle-btn {
+  background-color: #444;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #666;
+}
+/* Search button */
+.get-btn {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.get-btn:hover {
+  background-color: #1976d2;
+}
+
+.search-btn:active {
+  transform: scale(0.96);
+}
+
+/* Loading */
+.loading {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.error {
+  color: red;
+  margin-top: 10px;
+}
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .forecast {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .forecast-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 90%;
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
+  .weather-info {
+    width: 90%;
+    font-size: 16px;
+  }
+  .get-btn {
+  margin: 10px;
+}
+
+  input,
+  button {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .weather-info {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
   }
 }
